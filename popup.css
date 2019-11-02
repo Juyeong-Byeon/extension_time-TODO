@@ -1,0 +1,22 @@
+html{
+
+    background-color: royalblue;
+    color:whitesmoke;
+    text-align: center;
+    width: 600px;
+    height: 1000px;
+
+
+}
+
+.flex{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 22px;
+    font-size:10em;
+   
+
+
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src=js/bootstrap.js></script>
+</head>
+<body>
+
+    <h1 class="text-center">TIME TO DO !</h1>
+
+    <div class="container">
+        <table class=" text-center table table-hover table-condensed table-dark">
+
+            <thead>
+                <tr>
+                    <th>#</td>
+                    <th>할 일</td>
+                    <th>남은 시간</td>
+                    <th>완료</td>
+                </tr>
+            </thead>
+            <tbody id='todolist'>
+               
+                <tr>
+                    <td>1</td>
+                    <td>가나다라 마바사</td>
+                    <td>10:20</td>
+                    <td><input type="checkbox" name="vehicle1" value="Bike"></td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+
+
+        </table>
+    </div>
+    <div class="form-group text-center" >
+            <label for="TOdoinput">To do</label>
+            <input type="text" class="form-control" id="TOdoinput" placeholder="할 일을 적어주세요">
+            <label for="TOdoinput">time</label>
+           <input type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
+    </div>
+    <div class="col-sm-offset-2 col-sm-12">
+            <button type="submit" class="btn btn-primary text-center col-md-6">OK</button>
+    </div>
+  
+</body>
+</html>
