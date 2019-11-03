@@ -13,7 +13,7 @@
 
     <h1 class="text-center">TIME TO DO !</h1>
 
-    <div class="container">
+<div class="container">
         <table class=" text-center table table-hover table-condensed table-dark">
 
             <thead>
@@ -21,14 +21,14 @@
                     <th>#</td>
                     <th>할 일</td>
                     <th>남은 시간</td>
-                    <th>완료</td>
+                    <th>선택</td>
                 </tr>
             </thead>
             <tbody id='todolist'>
                
                 <tr>
                     <td>1</td>
-                    <td>가나다라 마바사</td>
+                    <td>익스텐션 만들기</td>
                     <td>10:20</td>
                     <td><input type="checkbox" name="vehicle1" value="Bike"></td>
                 </tr>
@@ -39,14 +39,17 @@
         </table>
     </div>
     <div class="form-group text-center" >
-            <label for="TOdoinput">To do</label>
+            <label for="TOdoinput">TO DO</label>
             <input type="text" class="form-control" id="TOdoinput" placeholder="할 일을 적어주세요">
-            <label for="TOdoinput">time</label>
-           <input type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
+            <label for="TOdoinput">TIME</label>
+           <input class=" m-3 text-center" type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
     </div>
-    <div class="col-sm-offset-2 col-sm-12">
-            <button type="submit" class="btn btn-primary text-center col-md-6">OK</button>
+    <div class="col-sm-offset-2 col-sm-12 m-2  text-center">
+            <button type="submit" class="btn btn-primary text-center  m-2">START</button>
+            <button type="submit" class="btn btn-primary text-center m-2">STOP</button>
+            <button type="submit" class="btn btn-primary text-center m-2">DELETE</button>
     </div>
+</div>
   
 </body>
 </html>
