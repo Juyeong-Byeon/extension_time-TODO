@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Time To Do!</title>
-    
+    <script src=js/popup.js></script>
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script src=js/bootstrap.js></script>
+    
+  
    
 </head>
 <body>
 
-    <h1 class="text-center">TIME TO DO !</h1>
+    <h1 class="text-center m-4">TIME TO DO !</h1>
 
 <div class="container">
     
@@ -27,8 +28,9 @@
                 </tr>
                 
             </thead>
-            <tbody id='todolist'>
-                <!--todoList will come here-->>
+            
+            <tbody class="overflow-auto" id='todolist'>
+                <!--todoList will come here-->
             </tbody>
             <tfoot></tfoot>
 
@@ -38,8 +40,14 @@
     <div id='createTodo' class="form-group text-center" >
             <label for="todoinput">TO DO</label>
             <input id='todoinput' type="text" class="form-control" placeholder="What should you do?">
-            <label for="todoTime">TIME</label>
-           <input id='todoTime'class="time m-3 text-center" type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
+            
+            <div class="slidecontainer"></div>
+
+            <label id='currentRange' class="label" for="todoTime">TIME: 1 MIN</label>
+            
+            </br>
+                    <input id='todoTime' class='custom-range m-1' type="range" min="1" max="120" value="1" id="myRange">
+            </div>
     </div>
     <div id='buttons' class="col-sm-offset-2 col-sm-12 m-2  text-center">
             <button id='btnStart' type="submit" class="btn btn-primary text-center  m-2">START</button>
@@ -51,6 +59,6 @@
         <progress id='golProgress' class='progress ' value="30" max="100"></progress>
     </div>
 </div>
-<script src=js/popup.js></script>
+
 </body>
 </html>

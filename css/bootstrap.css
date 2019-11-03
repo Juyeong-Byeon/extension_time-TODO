@@ -41,6 +41,13 @@
   box-sizing: border-box;
 }
 
+.fixheight{
+
+  height: 5em;
+
+}
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -3898,8 +3905,8 @@ input[type="button"].btn-block {
 }
 
 .custom-range {
-  width: 100%;
-  height: calc(1rem + 0.4rem);
+  width: 50%;
+  height: calc(2rem + 0.4rem);
   padding: 0;
   background-color: transparent;
   -webkit-appearance: none;
