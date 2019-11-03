@@ -47,6 +47,9 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   width:35em;
+ 
+ 
+ 
   
   
 }
@@ -64,6 +67,7 @@ body {
   color: white;
   text-align: left;
   background-color:var(--dark);
+  
 }
 
 [tabindex="-1"]:focus {
@@ -291,8 +295,19 @@ input[type="checkbox"] {
   padding: 0;
 }
 
+
+input[type="time"]{
+
+  background-color: rgba(50, 50, 50, 0.8);
+  color:white;
+  border-width: 0px;
+  border-radius: 0.3em;
+  text-align: center;
+  
+
+
+}
 input[type="date"],
-input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
   -webkit-appearance: listbox;

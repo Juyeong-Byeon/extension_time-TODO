@@ -4,52 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Time To Do!</title>
     
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src=js/bootstrap.js></script>
+   
 </head>
 <body>
 
     <h1 class="text-center">TIME TO DO !</h1>
 
 <div class="container">
-        <table class=" text-center table table-hover table-condensed table-dark">
+    
+        <table class=" text-center table table-hover table-condensed table-dark ">
 
             <thead>
                 <tr>
                     <th>#</td>
                     <th>할 일</td>
-                    <th>남은 시간</td>
+                    <th>남은 시간 (MIN) </td>
                     <th>선택</td>
                 </tr>
+                
             </thead>
             <tbody id='todolist'>
-               
-                <tr>
-                    <td>1</td>
-                    <td>익스텐션 만들기</td>
-                    <td>10:20</td>
-                    <td><input type="checkbox" name="vehicle1" value="Bike"></td>
-                </tr>
+                <!--todoList will come here-->>
             </tbody>
             <tfoot></tfoot>
 
 
         </table>
+
+    <div id='createTodo' class="form-group text-center" >
+            <label for="todoinput">TO DO</label>
+            <input id='todoinput' type="text" class="form-control" placeholder="What should you do?">
+            <label for="todoTime">TIME</label>
+           <input id='todoTime'class="time m-3 text-center" type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
     </div>
-    <div class="form-group text-center" >
-            <label for="TOdoinput">TO DO</label>
-            <input type="text" class="form-control" id="TOdoinput" placeholder="할 일을 적어주세요">
-            <label for="TOdoinput">TIME</label>
-           <input class=" m-3 text-center" type="time" id="time" name="bday" value="21:00" step="1800" min="00:00" max="23:59" required class="without" autofocus>
+    <div id='buttons' class="col-sm-offset-2 col-sm-12 m-2  text-center">
+            <button id='btnStart' type="submit" class="btn btn-primary text-center  m-2">START</button>
+            <button id='btnStop' type="submit" class="btn btn-primary text-center m-2">STOP</button>
+            <button id='btnDelete' type="submit" class="btn btn-primary text-center m-2">DELETE</button>
     </div>
-    <div class="col-sm-offset-2 col-sm-12 m-2  text-center">
-            <button type="submit" class="btn btn-primary text-center  m-2">START</button>
-            <button type="submit" class="btn btn-primary text-center m-2">STOP</button>
-            <button type="submit" class="btn btn-primary text-center m-2">DELETE</button>
+    <div  id='statues' class=" col-sm-12 m-3">
+        <label for='golProgres'>달성률</label>
+        <progress id='golProgress' class='progress ' value="30" max="100"></progress>
     </div>
 </div>
-  
+<script src=js/popup.js></script>
 </body>
 </html>

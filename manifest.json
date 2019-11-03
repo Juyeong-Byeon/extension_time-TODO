@@ -1,5 +1,5 @@
 {
-    "name":"sideMemo",
+    "name":"Time_to_do",
     "version":"1.0",
     "manifest_version":2,
     "content_scripts":[
@@ -14,7 +14,7 @@
     "browser_action":{
 
         "default_popup": "popup.html",
-        "default_title":"side_Memo",
+        "default_title":"timeToDo",
         "default_icon": {                
             "16": "images/icon16.png"
         }
