@@ -1,5 +1,8 @@
+
 let todoSeq=0;
 let todoID=0;
+let tempString='';
+let tempContentString='';
 
 function onclickStart(){
 
@@ -12,8 +15,41 @@ function onclickStop(){
 
 }
 function onclickDelete(){
-
     alert("선택된 항목을 지웁니다.");
+    let countDelete=0;
+    for(let i =0;i<todoID;i++){
+        tempString='#todoChecked'+i;
+        if(document.querySelector(tempString)==undefined)continue;//지워졌을 경우 삭제
+        if(document.querySelector(tempString).checked==true){//각tr의 체크 박스를 확인해서 체크되어있으면
+
+            tempString='#todo'+i;
+            document.querySelector(tempString).remove();//tr을 지운다.
+            countDelete++;
+        }
+
+
+    }
+
+    let newtodoSeq=1;
+
+    for(let i=1;i<=todoSeq;i++){
+        tempString='#todoSeq'+i;
+        if(!document.querySelector(tempString)){
+            continue;
+        }
+        else{
+            document.querySelector(tempString).textContent=(newtodoSeq);
+            tempContentString='todoSeq'+newtodoSeq;
+            document.querySelector(tempString).attributes.id=(tempContentString);
+            newtodoSeq++;
+        }
+
+    }
+
+    todoSeq=newtodoSeq-1;
+
+
+    
 
 }
 
@@ -49,14 +85,14 @@ document.addEventListener('DOMContentLoaded',
     
     );
     
-    
+
     let todoText=document.querySelector('#todoinput').addEventListener('keypress', function (e) {
         var key = e.which || e.keyCode;
         if (key === 13&&this.value) { // 13 is enter
             todoSeq+=1;
-            todolist.innerHTML+="<tr id='todo"+(todoID++)+"'><td>"+todoSeq+"</td><td>"+this.value+"</td><td>"+endTimer(todoTime.value)+"</td><td><input type='checkbox' name='selected' value='true'></td></tr>";
+            todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td>"+this.value+"</td><td>"+endTimer(todoTime.value)+"</td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
+            todoID++;
             this.value="";
-
         }
         
     });
