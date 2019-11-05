@@ -8,32 +8,35 @@ let timers=[];
 
 let Timer={
 
-    time:0,
     id:'',
+    seconds:Number,
     onclickStart: function(){
 
-        alert("선택된 항목의 타이머를 시작합니다.:"+this.id)
+        alert("선택된 항목의 타이머를 시작합니다.:"+id);
 
     },
     onclickStop: function(){
 
-        alert("선택된 항목의 타이머를 정지합니다.:"+this.id)
+        alert("선택된 항목의 타이머를 정지합니다.:"+id);
 
     },
     updateTimer: function (){
-    
-    let timeString="";
-    let seconds=this.time*60;
-    seconds--;
-    
-    this.time-=1;
-    
-    timeString=Math.floor(seconds/60)+":"+seconds%60;
-
-    return timeString;
+    console.log(this);  
+    let temp='';
+    let timeString=""
+    if(this.seconds>=0){
+    timeString=Math.floor(this.seconds/60)+":"+this.seconds%60;
+    temp="#timerView"+this.id;
+    document.querySelector(temp).textContent=timeString;
+    this.seconds--;
+    setInterval(timers[todoID].updateTimer.bind(this),1000);
     }
+    }
+   
 
 }
+
+
 
 
 
@@ -63,6 +66,7 @@ function onclickDelete(){//obj delete 구현 해주어야함.
             continue;
         }
         else{
+
             document.querySelector(tempString).textContent=(newtodoSeq);
             tempContentString='todoSeq'+newtodoSeq;
             document.querySelector(tempString).attributes.id=(tempContentString);
@@ -110,11 +114,13 @@ document.addEventListener('DOMContentLoaded',
         if (key === 13&&this.value) { // 13 is enter
             todoSeq+=1;
             timers[todoID]=Object.create(Timer);
-            timers[todoID].time=todoTime.value;
             timers[todoID].id=todoID;
-            todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td>"+this.value+"</td><td>"+timers[todoID].updateTimer()+"</td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
+            timers[todoID].seconds=todoTime.value*60;
+            todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td>"+this.value+"</td><td id='timerView"+todoID+"'></td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
+            timers[todoID].updateTimer();
             todoID++;
             this.value="";
+
         }
         
     });
