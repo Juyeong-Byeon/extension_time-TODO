@@ -3,12 +3,9 @@ let todoSeq=0;
 let todoID=0;
 let tempString='';
 let tempContentString='';
+let timers=[];
 
-function onclickStart(){
 
-<<<<<<< Updated upstream
-    alert("선택된 항목의 타이머를 시작합니다.");
-=======
 let Timer={
 
     id:'',
@@ -26,6 +23,7 @@ let Timer={
     },
     timerStop: function(){
         clearInterval(this.timerID);
+        alert("선택된 항목의 타이머를 정지합니다.");
     },
     updateTimer: function (){
         console.log(this);  
@@ -57,19 +55,10 @@ let Timer={
     }
     }
    
->>>>>>> Stashed changes
 
 }
-function onclickStop(){
 
-<<<<<<< Updated upstream
-    alert("선택된 항목의 타이머를 정지합니다.");
-
-}
-function onclickDelete(){
-=======
 function onclickDelete(){//obj delete 구현 해주어야함. 
->>>>>>> Stashed changes
     alert("선택된 항목을 지웁니다.");
     let countDelete=0;
     for(let i =0;i<todoID;i++){
@@ -80,10 +69,7 @@ function onclickDelete(){//obj delete 구현 해주어야함.
             tempString='#todo'+i;
             timers[i].timerStop();
             document.querySelector(tempString).remove();//tr을 지운다.
-<<<<<<< Updated upstream
-=======
             delete timers[i];
->>>>>>> Stashed changes
             countDelete++;
         }
 
@@ -123,14 +109,6 @@ function onclickStart(){
 
 }
 
-<<<<<<< Updated upstream
-function endTimer(time){
-
-    let timeString="";
-    timeString=time+":00";
-
-    return timeString;
-=======
 function onclickStop(){
     for(let i =0;i<todoID;i++){
 
@@ -141,7 +119,6 @@ function onclickStop(){
         
         }
     }
->>>>>>> Stashed changes
 }
 
 
@@ -161,7 +138,7 @@ document.addEventListener('DOMContentLoaded',
     function currentRange(){
         
         document.querySelector('#currentRange').innerHTML="<label id='currentRange' class='label' for='todoTime'>TIME: "+this.value+" MIN"+"</label>";
-    
+        
     }
     
     );
@@ -171,17 +148,14 @@ document.addEventListener('DOMContentLoaded',
         var key = e.which || e.keyCode;
         if (key === 13&&this.value) { // 13 is enter
             todoSeq+=1;
-<<<<<<< Updated upstream
-            todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td>"+this.value+"</td><td>"+endTimer(todoTime.value)+"</td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
-=======
             timers[todoID]=Object.create(Timer);
             timers[todoID].id=todoID;
             timers[todoID].seconds=todoTime.value*60;
             todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td id='do"+todoID+"'>"+this.value+"</td><td id='timerView"+todoID+"'></td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
             timers[todoID].updateTimer();
->>>>>>> Stashed changes
             todoID++;
             this.value="";
+
         }
         
     });
