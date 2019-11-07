@@ -11,6 +11,14 @@ let Timer={
     id:'',
     seconds:Number,
     timerID: Number,
+    todoContent: String,
+
+    initTimer: function(id,todoContent,seconds){
+        this.id=id;
+        this.todoContent=todoContent;
+        this.seconds=seconds;
+        this.timerID=setInterval(this.updateTimer.bind(this),1000);
+    },
 
     timerStart: function(){
         this.timerID=setInterval(this.updateTimer.bind(this),1000);
@@ -30,9 +38,7 @@ let Timer={
 
             document.querySelector(temp).style.backgroundColor='red';
             document.querySelector(temp).style.color='yellow';
-            temp="#do"+this.id;
-            temp=(document.querySelector(temp).textContent);
-            alert("일정: "+temp+" 시간이 만료 되었습니다!");
+            alert("일정: "+this.todoContent+" 시간이 만료 되었습니다!");
 
         }
         else if(this.seconds<1*60){
@@ -140,43 +146,19 @@ document.addEventListener('DOMContentLoaded',
     );
     
 
-    let todoText=document.querySelector('#todoinput').addEventListener('keypress', function (e) {
+document.querySelector('#todoinput').addEventListener('keypress', function (e) {
         var key = e.which || e.keyCode;
         if (key === 13&&this.value) { // 13 is enter
             todoSeq+=1;
-            timers[todoID]=Object.create(Timer);
-            timers[todoID].id=todoID;
-            timers[todoID].seconds=todoTime.value*60;
             todolist.innerHTML+="<tr id='todo"+(todoID)+"'><td id='todoSeq"+todoSeq+"'>"+todoSeq+"</td><td id='do"+todoID+"'>"+this.value+"</td><td id='timerView"+todoID+"'>00:00</td><td><input id='todoChecked"+todoID+"' type='checkbox' name='selected' value='true'></td></tr>";
-           
-            timers[todoID].timerID=setInterval(timers[todoID].updateTimer.bind(timers[todoID]),1000);
+            timers[todoID]=Object.create(Timer);
+            timers[todoID].initTimer(todoID,this.value,todoTime.value*60);
             todoID++;
             this.value="";
 
         }
         
     });
-    
-
-    
-    
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 },false);
 
 
